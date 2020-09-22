@@ -36,3 +36,18 @@ const [board, setBoard] = useState(
 
 squares:
 white square in bottom right corner
+
+
+
+
+TO DO:
+
+- layout of screen
+
+- board 
+
+- info 
+
+- donate button
+
+
