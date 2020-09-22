@@ -19,9 +19,9 @@ const App = () => {
         </div>
 
         <div className="m-container info-c">
-          info / options 
-          - instructions
-          - who's turn
+          info / options <br/>
+          - instructions <br/>
+          - who's turn <br/>
           - new game  - starting pieces - start 
         </div>   
       </div>

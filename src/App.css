@@ -36,7 +36,7 @@
 }
 
 .m-container{
-    margin: 1em;
+    margin-top: 2em;
     padding: 1em;
 
     background-color: #2A9D8F;
@@ -49,13 +49,33 @@
 
     font-weight: bold;
     color: #B9D4DF;
+
+    -webkit-text-stroke-width: 0.015rem;
+    -webkit-text-stroke-color: #264653;
 }
 
 .board-c{
-
+    width: 60%;
 }
 
 .info-c{
+    width: 20%;
+
+}
+
+@media (max-width: 40em) {
+    .cfb{
+        flex-direction: column;
+    }
+
+    .board-c{
+        width: 100%;
+    }
+    
+    .info-c{
+        width: 100%;
+
+    }
 
 }
 
