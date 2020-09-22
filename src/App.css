@@ -1,5 +1,6 @@
-/* https://coolors.co/264653-b9d4df-2a9d8f-e9c46a-f4a261-e76f51 */
+/* COLORS: https://coolors.co/264653-b9d4df-2a9d8f-e9c46a-f4a261-e76f51 */
 
+/* GENERAL */
 * {
     padding: 0;
     margin: 0;
@@ -9,6 +10,14 @@
     width: 100%;
     min-height: 100vh;
 }
+
+.cfb{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LOGO  */
 
 .logo-c{
     width: 100%;
@@ -29,23 +38,13 @@
     -webkit-text-stroke-color: #264653;
 }
 
-.cfb{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
+/* MAIN CONTAINERS */
 .m-container{
-    margin-top: 2em;
-    padding: 1em;
+    margin: 2em;
 
     background-color: #2A9D8F;
     box-shadow: 1px 2px 2px #264653;
     border-radius: 2rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     font-weight: bold;
     color: #B9D4DF;
@@ -54,29 +53,43 @@
     -webkit-text-stroke-color: #264653;
 }
 
+/* BOARD CONTAINER */
 .board-c{
-    width: 60%;
+    position: relative;
+
+    width: 50%;
+    
+    border-radius: 1em;
+    border: 0.8em solid #635380;
+    background-color: #635380;
 }
 
+.board-c:after{
+    content: '';
+
+    display: block;
+    padding-top: 100%;
+    
+    border: 0.8em solid #635380;
+    border-radius: 1em;
+}
+
+/* INFO CONTAINER */
 .info-c{
     width: 20%;
-
+    padding: 1em;
 }
 
+/* SMALL SCREENS */
 @media (max-width: 40em) {
     .cfb{
         flex-direction: column;
     }
 
-    .board-c{
-        width: 100%;
+    .m-container{
+        margin: 1em;
+        width: 90%;
     }
-    
-    .info-c{
-        width: 100%;
-
-    }
-
 }
 
 

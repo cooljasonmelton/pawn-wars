@@ -4,6 +4,7 @@ import React from 'react';
 import './App.css';
 
 // components
+import Board from './board/Board';
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
 
       <div className="cfb">
         <div className="m-container board-c">
-          chess board
+          <Board/>
         </div>
 
         <div className="m-container info-c">
