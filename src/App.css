@@ -55,21 +55,17 @@
 /* BOARD CONTAINER */
 .board-c{
     position: relative;
-    width: 38%;
+    width: 40%;
    
     border-radius: 1em;
-    border: 0.8em solid #264653;
-    background-color: #264653;
+    border: 0.8em solid #512940;
+    background-color: #512940;
 }
 
 .board-c:after{
     content: '';
-
     display: block;
     padding-top: 100%;
-    
-    border: 0.8em solid #264653;
-    border-radius: 1em;
 }
 
 /* INFO CONTAINER */
