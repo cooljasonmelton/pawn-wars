@@ -6,6 +6,7 @@ import React from 'react';
 import './Board.css';
 
 // components
+import Pawn from '../pieces/pawn/Pawn'
 
 const Board = () => {
     const sqArr = Array.from(Array(64).keys())
@@ -22,6 +23,7 @@ const Board = () => {
                 return(
                     <div key={sq} 
                         className={"square cfb" + sqColor(sq)}>
+                            <Pawn color="wh"/>
                     </div>
                 )
             })}

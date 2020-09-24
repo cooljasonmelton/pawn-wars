@@ -25,7 +25,6 @@ const App = () => {
           - instructions <br/>
           - who's turn <br/>
           - new game  - starting pieces - start 
-      <Pawn/> 
         </div>   
       </div>
 
