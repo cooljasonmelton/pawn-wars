@@ -5,6 +5,7 @@ import './App.css';
 
 // components
 import Board from './board/Board';
+import Pawn from './pieces/pawn/Pawn';
 
 const App = () => {
   return (
@@ -24,8 +25,10 @@ const App = () => {
           - instructions <br/>
           - who's turn <br/>
           - new game  - starting pieces - start 
+      <Pawn/> 
         </div>   
       </div>
+
 
 
     </div>
