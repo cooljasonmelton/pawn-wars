@@ -1,13 +1,14 @@
-// this file will export an AoA for Board.js to render
+// RENDER BOARD
+// map board 
 
-const fullBoard = 
-    [
-        ["br", "bn", "bi", "bq", "bk", "bi", "bn", "br"],
-        ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
-        ["wr", "wn", "wi", "wq", "wk", "wi", "wn", "wr"]
-    ]
+
+// GAME PLAY
+// select piece
+// -- identify piece
+// -- identify available moves / captures / en passant
+
+// unselect pieces
+// -- turn off available moves / captures
+
+// move piece
+// -- based on available square, move or capture
