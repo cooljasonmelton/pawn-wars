@@ -78,7 +78,7 @@
 }
 
 /* SMALL SCREENS */
-@media (max-width: 50em) {
+@media (max-width: 44em) {
     .cfb{
         flex-direction: column;
     }

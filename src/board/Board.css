@@ -16,5 +16,9 @@
     opacity: 0.9;
 }
 
-.bl{background-color: #E9C46A}
-.wh{background-color: #AD5C8B}
+.bl{
+    background-color: rgb(233,196,106,0.85);
+}
+.wh{
+    background-color: rgb(173,92,139,0.85);
+}

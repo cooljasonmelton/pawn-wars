@@ -5,7 +5,6 @@ import './App.css';
 
 // components
 import Board from './board/Board';
-import Pawn from './pieces/pawn/Pawn';
 
 const App = () => {
   return (

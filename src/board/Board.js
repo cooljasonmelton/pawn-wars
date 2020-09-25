@@ -16,20 +16,23 @@ const Board = () => {
         setBoard(basicBoard)
     }, []);
 
-    const sqArr = Array.from(Array(64).keys())
+    // takes sq number and returns color of square, bl or wh
+
     const sqColor = sq => {
         const row =  Math.floor(sq / 8)
+        // even rows
         if (row % 2 === 0) return sq % 2 === 0 ? " bl" : " wh"
+        // odd rows
         return sq % 2 === 1 ? " bl" : " wh"
     }
 
     const renderBoard = () => {
-        let count = -1
+        let counter = -1 
         return board.map(row=> row.map(sq => {
-            count++
-            if (sq === 'wp') return <div key={count} className={sqColor(count)}><Pawn color="wh"/></div>
-            if (sq === 'bp') return <div key={count} className={sqColor(count)}><Pawn color="bl"/></div>
-            return <div key={count} className={sqColor(count)}></div>
+            counter++
+            if (sq === 'wp') return <div key={counter} className={sqColor(counter)}><Pawn color="wh"/></div>
+            if (sq === 'bp') return <div key={counter} className={sqColor(counter)}><Pawn color="bl"/></div>
+            return <div key={counter} className={sqColor(counter)}></div>
         }))
     }
     console.log(board)
