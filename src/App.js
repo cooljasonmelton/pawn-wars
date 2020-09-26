@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 // styling
 import './App.css';
 
 // components
 import Board from './board/Board';
-import Pawn from './pieces/pawn/Pawn';
 
 const App = () => {
+  const [whTurn, setWhTurn] = useState(true)
+
   return (
     <div className="App">
 
@@ -17,7 +18,7 @@ const App = () => {
 
       <div className="cfb">
         <div className="m-container board-c">
-          <Board/>
+          <Board whTurn={whTurn} setWhTurn={setWhTurn}/>
         </div>
 
         <div className="m-container info-c">

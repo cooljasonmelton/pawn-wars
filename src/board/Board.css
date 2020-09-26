@@ -10,11 +10,19 @@
     background-image: url('../images/marble.jpg');
 }
 
-.square{
-    width: 100%;
-    height: 100%;
-    opacity: 0.9;
+/* square colors */
+.bl{
+    background-color: rgb(233,196,106,0.85);
+}
+.wh{
+    background-color: rgb(173,92,139,0.85);
 }
 
-.bl{background-color: #E9C46A}
-.wh{background-color: #AD5C8B}
+/* available move marker */
+.av-marker{
+    width: 25%;
+    height: 25%;
+    border: 1px solid #264653; 
+    background-color: #B9D4DF; 
+    border-radius: 50%;
+}

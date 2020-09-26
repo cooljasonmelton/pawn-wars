@@ -14,5 +14,8 @@ export const brook = require('./brook.png')
 export const bqueen = require('./bqueen.png')
 export const bking = require('./bking.png')
 
+// available capture 
+export const avpawn = require('./avpawn.png')
+
 // marble board background
 export const marbleBG = require('./marble.jpg')
