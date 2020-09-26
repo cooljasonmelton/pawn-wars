@@ -34,7 +34,7 @@ const Board = props => {
             if (sq === 'wp') { 
                 const sqNum = counter
                 return <div key={sqNum} 
-                            onClick={()=>selectPiece(()=> sqNum, 'wp')} 
+                            onClick={()=>selectPiece(() => sqNum, 'wp')} 
                             className={sqColor(sqNum)}>
                         <Pawn color="wh"/>
                     </div>
@@ -42,7 +42,7 @@ const Board = props => {
             if (sq === 'bp') {
                 const sqNum = counter
                 return <div key={sqNum} 
-                            onClick={()=>selectPiece(()=> sqNum, 'bp')} 
+                            onClick={()=>selectPiece(() => sqNum, 'bp')} 
                             className={sqColor(sqNum)}>
                         <Pawn color="bl"/>
                     </div>
@@ -56,14 +56,16 @@ const Board = props => {
 
     const selectPiece = (num, piece) => {
         // return if clicking piece not on turn
-        if (whTurn && piece.charAt(0) === "b") return
-        if (!whTurn && piece.charAt(0) === "w") return
+        if ((whTurn && piece.charAt(0) === "b") || (!whTurn && piece.charAt(0) === "w")) return
+
+        const rank = Math.floor(num() / 8);
+        const file = num() % 8;
+        const updateBoard = [...board]
+
+        if (piece.charAt(1) === "p") console.log('pawn')
 
 
-        console.log(num, piece)
-
-        setWhTurn(!whTurn)
-
+        console.log(rank, file, piece)
     }
 
     const clearAv = () => {
@@ -71,7 +73,7 @@ const Board = props => {
     }
 
     const movePiece = () => {
-
+        setWhTurn(!whTurn)
     }
 
     return (
