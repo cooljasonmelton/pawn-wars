@@ -42,12 +42,17 @@ white square in bottom right corner
 
 TO DO:
 
-- layout of screen
+- layout
 
-- board 
+- board
 
 - info 
 
 - donate button
 
+
+- stretch:
+pick which pieces to play with
+option to turn of av marker spaces
+check and checkmate
 

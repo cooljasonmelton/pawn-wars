@@ -3,11 +3,11 @@
 export const basicBoard = [
     [null, null, null, null, null, null, null, null],
     ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
-    ["bp", "wp", null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
-    ["wp", null, null, "bp", null, null, null, null],
-    ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
+    [null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null],
+    ["bp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
     [null, null, null, null, null, null, null, null]
 ]
 

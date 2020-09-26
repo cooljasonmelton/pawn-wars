@@ -22,7 +22,28 @@
 .av-marker{
     width: 25%;
     height: 25%;
-    border: 1px solid #264653; 
-    background-color: #B9D4DF; 
+    background-color: #264653; 
     border-radius: 50%;
+}
+
+.av-c{
+    cursor: pointer;
+}
+
+.win-message{
+    position: absolute;
+    bottom: 35%;
+    left: 24%;
+
+    height: 25%;
+    width: 52%;
+    padding: 2.5% 0;
+
+    background-color: #439d8f;
+    border-radius: 1em;
+
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
