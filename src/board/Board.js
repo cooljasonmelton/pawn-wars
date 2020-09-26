@@ -10,11 +10,10 @@ import './Board.css';
 import Pawn from '../pieces/pawn/Pawn'
 
 const Board = props => {
-    const { whTurn, setWhTurn, reset, setReset } = props
+    const { whTurn, setWhTurn, reset, setReset, winGame, setWinGame } = props
     const [board, setBoard] = useState([])
     const [selectedP, setSelectedP] = useState(null)
     const [enPassantAv, setEnPassantAv] = useState(null)
-    const [winGame, setWinGame] = useState(null)
 
     useEffect(() => {
         if (reset){
@@ -39,15 +38,6 @@ const Board = props => {
         let counter = -1 
         return board.map(row=> row.map(sq => {
             counter++
-            if (winGame && counter === 63) {
-                const sqNum = counter
-                return <div key={`win-${sqNum}`} className="win-message">
-                    {winGame === "wh" ? 
-                        "White Wins!"
-                            : "Black Wins!"}
-                </div>
-            }
-
             // white pawn
             if (sq === 'wp') { 
                 const sqNum = counter
@@ -84,6 +74,8 @@ const Board = props => {
     }
 
     const selectPiece = (num, piece) => {
+        // return if game is won
+        if (winGame) return
         // return if not piece's turn
         if ((whTurn && piece.charAt(0) === "b") || (!whTurn && piece.charAt(0) === "w")) return
         setSelectedP(num())

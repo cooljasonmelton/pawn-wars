@@ -53,12 +53,6 @@
     background-color: #2A9D8F;
     box-shadow: 1px 2px 2px #264653;
     border-radius: 2rem;
-
-    font-weight: bold;
-    color: #B9D4DF;
-
-    -webkit-text-stroke-width: 0.015rem;
-    -webkit-text-stroke-color: #264653;
 }
 
 /* BOARD CONTAINER */
@@ -79,8 +73,68 @@
 
 /* INFO CONTAINER */
 .info-c{
-    width: 20%;
+    width: 40%;
     padding: 1em;
+    flex-direction: column;
+}
+
+/* winning message */
+.winning-message{
+    height: 0;
+    margin: 1em;
+    background-color: #E9C46A;
+    border-radius: 1em;
+    overflow: hidden;
+
+    font-size: 2em;
+    color: #ad5c8b;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #264653;
+    transition: 0.5s;
+}
+.open-w{
+    overflow: scroll;
+    height: 1rem;
+    padding: 1rem;
+    border: 1px solid #264653;
+
+}
+
+/* instructions */
+.instructions{
+    height: 0;
+    background-color: #B9D4DF;
+    border-radius: 1em;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.open-i {
+    overflow: scroll;
+    height: 15em;
+    padding: 1em;
+    border: 1px solid #264653;
+}
+
+/* info container controls */
+.button-c{
+    width: 100%;
+}
+.button-c > button {
+    padding: 0.5em;
+    margin: 0.5em;
+
+    border-radius: 0.5em;
+    background-color: #B9D4DF;
+    border: 1px solid #264653;
+}
+
+.button-c > button:focus {
+    outline: none;
+}
+.button-c > button:hover {
+    cursor: pointer;
 }
 
 /* SMALL SCREENS */
