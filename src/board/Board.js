@@ -13,7 +13,7 @@ const Board = props => {
     const { whTurn, setWhTurn, reset, setReset } = props
     const [board, setBoard] = useState([])
     const [selectedP, setSelectedP] = useState(null)
-    const [enPassant, setEnPassant] = useState(null)
+    const [enPassantAv, setEnPassantAv] = useState(null)
     const [winGame, setWinGame] = useState(null)
 
     useEffect(() => {
@@ -21,6 +21,7 @@ const Board = props => {
             setBoard(basicBoard)
             setWhTurn(true)
             setReset(false)
+            setWinGame(null)
         }
     }, [reset]);
 
