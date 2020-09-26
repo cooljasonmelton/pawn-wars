@@ -39,7 +39,7 @@
 }
 
 .logo-header{
-    padding: 1rem 1rem 0;
+    padding: 1rem 1rem;
     color: #E9C46A;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #264653;
@@ -80,7 +80,7 @@
 /* winning message */
 .winning-message{
     height: 0;
-    margin: 1em;
+    margin: 0.5em;
     background-color: #E9C46A;
     border-radius: 1em;
     overflow: hidden;
@@ -120,12 +120,13 @@
     width: 100%;
 }
 .button-c > button {
-    padding: 0.5em;
+    padding: 0.3em;
     margin: 0.5em;
 
     border-radius: 0.5em;
     background-color: #B9D4DF;
     border: 1px solid #264653;
+    font-size: 1em;
 }
 
 .button-c > button:focus {
@@ -133,6 +134,11 @@
 }
 .button-c > button:hover {
     cursor: pointer;
+}
+.button-c > button:active {
+    background-color: #264653;
+    border: 1px solid #B9D4DF;
+    color: #B9D4DF;
 }
 
 /* SMALL SCREENS */

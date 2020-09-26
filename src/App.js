@@ -16,7 +16,8 @@ const App = () => {
     <div className="App">
 
       <div className="logo-c">
-        <h1 className="logo-header"> </h1>
+        {/* <h1 className="logo-header"> </h1> */}
+        <br/>
         <br/>
         <br/>
       </div>
@@ -34,10 +35,6 @@ const App = () => {
         <div className="m-container info-c cfb">
           <h1 className="logo-header">PAWN WARS</h1>
 
-          <div className={"winning-message cfb" + (winGame ? " open-w" : "")}>
-            <b>{winGame === "wh" ? "White Wins!" : "Black Wins!"}</b>
-          </div>
-
           <div className={"instructions" + (instructions ? " open-i" : "")}>
             <b>To Win:</b> Move one of your pawns to the edge of the board. 
             <br/>
@@ -51,6 +48,10 @@ const App = () => {
           <div className="button-c cfb">
             <button onClick={()=>setInstructions(!instructions)}>Instructions</button>
             <button onClick={()=>setReset(true)}>New Game</button>
+          </div>
+
+          <div className={"winning-message cfb" + (winGame ? " open-w" : "")}>
+            <b>{winGame === "wh" ? "White Wins!" : "Black Wins!"}</b>
           </div>
         </div>   
       </div>
