@@ -24,6 +24,11 @@
     height: 100%;
 }
 
+.piece {
+    width: 85%;
+    height: 85%;
+}
+
 /* LOGO  */
 .logo-c{
     width: 100%;
