@@ -38,6 +38,14 @@ const Board = props => {
         let counter = -1 
         return board.map(row=> row.map(sq => {
             counter++
+            if (winGame && counter === 63) {
+                const sqNum = counter
+                return <div key={`win-${sqNum}`} className="win-message">
+                    {winGame === "wh" ? 
+                        "White Wins!"
+                            : "Black Wins!"}
+                </div>
+            }
 
             // white pawn
             if (sq === 'wp') { 
@@ -125,8 +133,8 @@ const Board = props => {
         updateBoard[Math.floor(num() / 8)][num() % 8] = piece
 
         // win game 
-        if (whTurn && num() < 16) setWinGame('wh')
-        if (!whTurn && num() > 47) setWinGame('bl')
+        if (whTurn && num() < 8) setWinGame('wh')
+        if (!whTurn && num() > 55) setWinGame('bl')
 
         setBoard(updateBoard)
         setWhTurn(!whTurn)

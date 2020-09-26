@@ -27,7 +27,7 @@ const App = () => {
           - instructions <br/>
           - who's turn <br/>
           - new game  - starting pieces - start 
-          <button onClick={()=>setReset(true)}>Reset Game</button>
+          <button onClick={()=>setReset(true)}>New Game</button>
         </div>   
       </div>
 
