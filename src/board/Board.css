@@ -22,7 +22,10 @@
 .av-marker{
     width: 25%;
     height: 25%;
-    border: 1px solid #264653; 
-    background-color: #B9D4DF; 
+    background-color: #264653; 
     border-radius: 50%;
+}
+
+.av-c{
+    cursor: pointer;
 }
