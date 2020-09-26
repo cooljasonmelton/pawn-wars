@@ -9,8 +9,9 @@ import './Board.css';
 // components
 import Pawn from '../pieces/pawn/Pawn'
 
-const Board = () => {
+const Board = props => {
     const [board, setBoard] = useState([])
+    const {whTurn, setWhTurn} = props
 
     useEffect(() => {
         setBoard(basicBoard)
@@ -30,12 +31,49 @@ const Board = () => {
         let counter = -1 
         return board.map(row=> row.map(sq => {
             counter++
-            if (sq === 'wp') return <div key={counter} className={sqColor(counter)}><Pawn color="wh"/></div>
-            if (sq === 'bp') return <div key={counter} className={sqColor(counter)}><Pawn color="bl"/></div>
+            if (sq === 'wp') { 
+                const sqNum = counter
+                return <div key={sqNum} 
+                            onClick={()=>selectPiece(()=> sqNum, 'wp')} 
+                            className={sqColor(sqNum)}>
+                        <Pawn color="wh"/>
+                    </div>
+            }
+            if (sq === 'bp') {
+                const sqNum = counter
+                return <div key={sqNum} 
+                            onClick={()=>selectPiece(()=> sqNum, 'bp')} 
+                            className={sqColor(sqNum)}>
+                        <Pawn color="bl"/>
+                    </div>
+            }
+            if (sq === 'av') return <div key={counter} className={"cfb" + sqColor(counter)}><div className="av-marker"></div></div>
+            if ((sq === 'wpav') || (sq === 'bpav')) return <div key={counter} className={sqColor(counter)}><Pawn color="av"/></div>
+
             return <div key={counter} className={sqColor(counter)}></div>
         }))
     }
-    console.log(board)
+
+    const selectPiece = (num, piece) => {
+        // return if clicking piece not on turn
+        if (whTurn && piece.charAt(0) === "b") return
+        if (!whTurn && piece.charAt(0) === "w") return
+
+
+        console.log(num, piece)
+
+        setWhTurn(!whTurn)
+
+    }
+
+    const clearAv = () => {
+
+    }
+
+    const movePiece = () => {
+
+    }
+
     return (
         <div className="Board">
             {renderBoard()}

@@ -13,7 +13,6 @@
 .square{
     width: 100%;
     height: 100%;
-    opacity: 0.9;
 }
 
 .bl{
@@ -21,4 +20,12 @@
 }
 .wh{
     background-color: rgb(173,92,139,0.85);
+}
+
+.av-marker{
+    width: 25%;
+    height: 25%;
+    border: 1px solid #264653; 
+    background-color: #B9D4DF; 
+    border-radius: 50%;
 }
