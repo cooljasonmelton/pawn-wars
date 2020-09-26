@@ -10,15 +10,19 @@ import './Board.css';
 import Pawn from '../pieces/pawn/Pawn'
 
 const Board = props => {
-    const { whTurn, setWhTurn } = props
+    const { whTurn, setWhTurn, reset, setReset } = props
     const [board, setBoard] = useState([])
-    const [select, setSelect] = useState(null)
+    const [selectedP, setSelectedP] = useState(null)
     const [enPassant, setEnPassant] = useState(null)
-
+    const [winGame, setWinGame] = useState(null)
 
     useEffect(() => {
-        setBoard(basicBoard)
-    }, []);
+        if (reset){
+            setBoard(basicBoard)
+            setWhTurn(true)
+            setReset(false)
+        }
+    }, [reset]);
 
     // takes sq number and returns color of square, bl or wh
     const sqColor = sq => {
@@ -73,14 +77,14 @@ const Board = props => {
     const selectPiece = (num, piece) => {
         // return if not piece's turn
         if ((whTurn && piece.charAt(0) === "b") || (!whTurn && piece.charAt(0) === "w")) return
-        setSelect(num())
+        setSelectedP(num())
         const updateBoard = [...clearAv(board)]
         const rank = Math.floor(num() / 8);
         const file = num() % 8;
 
         if (whTurn) {
             // wh pawn moves two space
-            if (!updateBoard[rank - 1][file] && !updateBoard[rank - 2][file] && (num() > 47)) updateBoard[rank - 2][file] = "av"
+            if ((num() > 47) && !updateBoard[rank - 1][file] && !updateBoard[rank - 2][file]) updateBoard[rank - 2][file] = "av"
             // wh pawn moves one space
             if (!updateBoard[rank - 1][file]) updateBoard[rank - 1][file] = "av"
             // available capture
@@ -91,7 +95,7 @@ const Board = props => {
 
         if (!whTurn) {
             // bl pawn moves two space
-            if (!updateBoard[rank + 1][file] && !updateBoard[rank + 2][file] && (num() < 16)) updateBoard[rank + 2][file] = "av"
+            if ((num() < 16) && !updateBoard[rank + 1][file] && !updateBoard[rank + 2][file]) updateBoard[rank + 2][file] = "av"
             // bl pawn moves one space
             if (!updateBoard[rank + 1][file]) updateBoard[rank + 1][file] = "av"
             // available capture
@@ -113,12 +117,16 @@ const Board = props => {
 
     const movePiece = (num) => {
         const updateBoard = [...clearAv(board)]
-        const piece = updateBoard[Math.floor(select / 8)][select % 8]
-
+        // get piece name
+        const piece = updateBoard[Math.floor(selectedP / 8)][selectedP % 8]
         // set 'from' sq to null
-        updateBoard[Math.floor(select / 8)][select % 8] = null
+        updateBoard[Math.floor(selectedP / 8)][selectedP % 8] = null
         // set 'to' sq to piece
         updateBoard[Math.floor(num() / 8)][num() % 8] = piece
+
+        // win game 
+        if (whTurn && num() < 16) setWinGame('wh')
+        if (!whTurn && num() > 47) setWinGame('bl')
 
         setBoard(updateBoard)
         setWhTurn(!whTurn)

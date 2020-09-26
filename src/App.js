@@ -8,6 +8,7 @@ import Board from './board/Board';
 
 const App = () => {
   const [whTurn, setWhTurn] = useState(true)
+  const [reset, setReset] = useState(true)
 
   return (
     <div className="App">
@@ -18,7 +19,7 @@ const App = () => {
 
       <div className="cfb">
         <div className="m-container board-c">
-          <Board whTurn={whTurn} setWhTurn={setWhTurn}/>
+          <Board whTurn={whTurn} setWhTurn={setWhTurn} reset={reset} setReset={setReset}/>
         </div>
 
         <div className="m-container info-c">
@@ -26,6 +27,7 @@ const App = () => {
           - instructions <br/>
           - who's turn <br/>
           - new game  - starting pieces - start 
+          <button onClick={()=>setReset(true)}>Reset Game</button>
         </div>   
       </div>
 
