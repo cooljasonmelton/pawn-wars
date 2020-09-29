@@ -10,19 +10,29 @@ import './Board.css';
 import Pawn from '../pieces/pawn/Pawn'
 
 const Board = props => {
-    const { whTurn, setWhTurn, reset, setReset, winGame, setWinGame } = props
+    const { 
+        whTurn, 
+        setWhTurn, 
+        reset, 
+        setReset, 
+        winGame, 
+        setWinGame 
+    } = props
+    // board (arr of row arrays with string codes for pieces
     const [board, setBoard] = useState([])
+    // when piece clicked, saves sq num
     const [selectedP, setSelectedP] = useState(null)
-    // const [enPassantAv, setEnPassantAv] = useState(null)
+    // if pawn moves 2sq, saves sq num
+    const [enPassantAv, setEnPassantAv] = useState(null)
 
-    useEffect(() => {
-        if (reset){
-            setBoard(basicBoard)
-            setWhTurn(true)
-            setReset(false)
-            setWinGame(null)
-        }
-    }, [reset]);
+    // resets piece placement, white turn, reset button, win game
+    const resetEverything = () => {
+        setBoard(basicBoard)
+        setWhTurn(true)
+        setReset(false)
+        setWinGame(null)
+    }
+    useEffect(resetEverything, [reset]);
 
     // takes sq number and returns color of square, bl or wh
     const sqColor = sq => {
@@ -41,11 +51,13 @@ const Board = props => {
             // pawn
             if ((sq === 'wp') || (sq === 'bp')) { 
                 const sqNum = counter
-                return <div key={sqNum} 
-                            onClick={()=>selectPiece(() => sqNum, sq === "wp" ? "wp" : "bp")} 
-                            className={sqColor(sqNum) + ' cfb'}>
-                    <Pawn color={sq === "wp" ? "wh" : "bl"}/>
-                </div>
+                return (
+                    <div key={sqNum} 
+                        onClick={()=>selectPiece(() => sqNum, sq === "wp" ? "wp" : "bp")} 
+                        className={sqColor(sqNum) + ' cfb'}>
+                        <Pawn color={sq === "wp" ? "wh" : "bl"}/>
+                    </div>
+                )
             }
 
             // available move
@@ -123,8 +135,12 @@ const Board = props => {
         updateBoard[Math.floor(num() / 8)][num() % 8] = piece
 
         // win game 
-        if (whTurn && num() < 8) setWinGame('wh')
-        if (!whTurn && num() > 55) setWinGame('bl')
+        if (whTurn && num() < 8) {
+            setWinGame('wh')
+        }
+        if (!whTurn && num() > 55) {
+            setWinGame('bl')
+        }
 
         setBoard(updateBoard)
         setWhTurn(!whTurn)
