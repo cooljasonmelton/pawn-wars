@@ -22,7 +22,7 @@ const Board = props => {
     const [board, setBoard] = useState([])
     // when piece clicked, saves sq num
     const [selectedP, setSelectedP] = useState(null)
-    // if pawn moves 2sq, saves sq num
+    // if pawn moves 2 sq, saves sq num to allow for en passant
     const [enPassantAv, setEnPassantAv] = useState(null)
 
     // resets piece placement, white turn, reset button, win game
@@ -72,10 +72,16 @@ const Board = props => {
                 return <div key={counter} className={"cfb "+sqColor(counter)} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
             }
 
+            // available en passant capture
+            // if ((sq === 'wpep') || (sq === 'bpep')) {
+            //     const sqNum = counter
+            //     return <div key={counter} className={"cfb "+sqColor(counter)} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
+            // }
+
             // pawn on winning square
             if ((sq === 'wpw') || (sq === 'bpw')) {
                 const sqNum = counter
-                return <div key={counter} className={"cfb win-sq"} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
+                return <div key={counter} className={"cfb win-sq"} onClick={()=>movePiece(() => sqNum)}> <Pawn color={sq.charAt(0) === "w" ? "wh" : "bl"}/></div>
             }
 
             return <div key={counter} className={sqColor(counter)}></div>
@@ -128,19 +134,26 @@ const Board = props => {
     const movePiece = (num) => {
         const updateBoard = [...clearAv(board)]
         // get piece name
-        const piece = updateBoard[Math.floor(selectedP / 8)][selectedP % 8]
+        let piece = updateBoard[Math.floor(selectedP / 8)][selectedP % 8]
+
+        // win game 
+        if (whTurn && num() < 8) {
+            setWinGame('wh')
+            piece = piece + 'w'
+        }
+        if (!whTurn && num() > 55) {
+            setWinGame('bl')
+            piece = piece + 'w'
+        }
+
         // set 'from' sq to null
         updateBoard[Math.floor(selectedP / 8)][selectedP % 8] = null
         // set 'to' sq to piece
         updateBoard[Math.floor(num() / 8)][num() % 8] = piece
 
-        // win game 
-        if (whTurn && num() < 8) {
-            setWinGame('wh')
-        }
-        if (!whTurn && num() > 55) {
-            setWinGame('bl')
-        }
+        // does this move all opponent to enpassant?
+        if ((num() - selectedP === 16) || (num() - selectedP === -16)) setEnPassantAv(num())
+        else setEnPassantAv(null)
 
         setBoard(updateBoard)
         setWhTurn(!whTurn)
