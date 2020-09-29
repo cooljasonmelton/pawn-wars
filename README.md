@@ -21,6 +21,10 @@ capture:
 av: space available
 ep: en passant
 
+pawn on winning sq: 
+wpw
+bpw
+
 const [board, setBoard] = useState(
     [
         ["br", "bn", "bi", "bq", "bk", "bi", "bn", "br"],
@@ -42,17 +46,10 @@ white square in bottom right corner
 
 TO DO:
 
-- layout
-
-- board
-
-- info 
-
-- donate button
-
 
 - stretch:
-pick which pieces to play with
-option to turn of av marker spaces
+pick which pieces to play with: add rook, bishop, etc.
+visual diagrams to show moves in information
+option to turn off av marker spaces
 check and checkmate
 

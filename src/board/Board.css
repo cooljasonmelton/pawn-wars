@@ -17,6 +17,9 @@
 .wh{
     background-color: rgb(173,92,139,0.85);
 }
+.win-sq{
+    background-color: rgb(97, 255, 126, 0.85);
+}
 
 /* available move marker */
 .av-marker{
