@@ -1,6 +1,3 @@
-
-
-
 Piece svgs:
 https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces
 
@@ -43,11 +40,7 @@ squares:
 white square in bottom right corner
 
 
-
-
 TO DO:
-
-
 - stretch:
 pick which pieces to play with: add rook, bishop, etc.
 visual diagrams to show moves in information
