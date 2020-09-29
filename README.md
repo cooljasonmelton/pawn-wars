@@ -24,7 +24,8 @@ npm start
 ```
 
 ### contact author
-- Jason Melton: jason.melton2@gmail.com
+- Jason Melton
+- jason.melton2@gmail.com
 
 ### coming soon
 - option to add other pieces: rook, bishop, knight, queen king
