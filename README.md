@@ -1,55 +1,29 @@
-Piece svgs:
-https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces
+# pawn wars
 
+### about
+Pawn Wars is a chess variant that helps people learn how chess pieces move without the needing to understand the more complicated aspects of the game. The first player to move a pawn to the other end of the board wins. 
 
+As players get comfortable with how the pawns move, more pieces can be added so players can learn how those pieces move as well (this will be available in later versions of the app).
 
-BOARD KEY:
-color: 
-b: black
-w: white
+### built with
+- React.js
 
-piece: 
-p: pawn
-r: rook 
-n: knight
-i: bishop
-q: queen
-k: king
+### installation
+clone repo
+```
+git clone git@github.com:cooljasonmelton/pawn-wars.git
+```
+open directory, install and start 
+```
+npm install
+npm start
+```
 
-capture:
--av: as suffix to piece, capture available
-av: space available
-ep: en passant
+### contact author
+- Jason Melton: jason.melton2@gmail.com
 
-pawn on winning sq: 
-wpw
-bpw
-
-const [board, setBoard] = useState(
-    [
-        ["br", "bn", "bi", "bq", "bk", "bi", "bn", "br"],
-        ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
-        ["wr", "wn", "wi", "wq", "wk", "wi", "wn", "wr"]
-    ]
-)
-
-squares:
-white square in bottom right corner
-
-
-
-
-TO DO:
-
-
-- stretch:
-pick which pieces to play with: add rook, bishop, etc.
-visual diagrams to show moves in information
-option to turn off av marker spaces
-check and checkmate
-
+### coming soon
+- option to add other pieces: rook, bishop, knight, queen king
+- visual diagrams to show how pieces move in instuctions box
+- option to turn off available move markers
+- option to turn on check and checkmate
