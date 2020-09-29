@@ -21,6 +21,10 @@ capture:
 av: space available
 ep: en passant
 
+pawn on winning sq: 
+wpw
+bpw
+
 const [board, setBoard] = useState(
     [
         ["br", "bn", "bi", "bq", "bk", "bi", "bn", "br"],

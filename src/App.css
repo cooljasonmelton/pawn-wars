@@ -105,6 +105,7 @@
     background-color: #B9D4DF;
     border-radius: 1em;
     overflow: hidden;
+    color: black;
     transition: 0.5s;
 }
 .instructions > p {

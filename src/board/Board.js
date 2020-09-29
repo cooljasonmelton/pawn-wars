@@ -13,7 +13,7 @@ const Board = props => {
     const { whTurn, setWhTurn, reset, setReset, winGame, setWinGame } = props
     const [board, setBoard] = useState([])
     const [selectedP, setSelectedP] = useState(null)
-    const [enPassantAv, setEnPassantAv] = useState(null)
+    // const [enPassantAv, setEnPassantAv] = useState(null)
 
     useEffect(() => {
         if (reset){
@@ -38,23 +38,13 @@ const Board = props => {
         let counter = -1 
         return board.map(row=> row.map(sq => {
             counter++
-            // white pawn
-            if (sq === 'wp') { 
+            // pawn
+            if ((sq === 'wp') || (sq === 'bp')) { 
                 const sqNum = counter
                 return <div key={sqNum} 
-                            onClick={()=>selectPiece(() => sqNum, 'wp')} 
+                            onClick={()=>selectPiece(() => sqNum, sq === "wp" ? "wp" : "bp")} 
                             className={sqColor(sqNum) + ' cfb'}>
-                    <Pawn color="wh"/>
-                </div>
-            }
-
-            // black pawn
-            if (sq === 'bp') {
-                const sqNum = counter
-                return <div key={sqNum} 
-                            onClick={()=>selectPiece(() => sqNum, 'bp')} 
-                            className={sqColor(sqNum) + ' cfb'}>
-                    <Pawn color="bl"/>
+                    <Pawn color={sq === "wp" ? "wh" : "bl"}/>
                 </div>
             }
 
@@ -69,6 +59,13 @@ const Board = props => {
                 const sqNum = counter
                 return <div key={counter} className={"cfb "+sqColor(counter)} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
             }
+
+            // pawn on winning square
+            if ((sq === 'wpw') || (sq === 'bpw')) {
+                const sqNum = counter
+                return <div key={counter} className={"cfb win-sq"} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
+            }
+
             return <div key={counter} className={sqColor(counter)}></div>
         }))
     }
