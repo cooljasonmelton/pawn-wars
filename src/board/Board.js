@@ -99,7 +99,6 @@ const Board = props => {
         }))
     }
 
-
     const selectPiece = (num, piece) => {
         // return if game is won
         if (winGame) return
@@ -154,7 +153,8 @@ const Board = props => {
         }
 
         // capture piece via en passant
-        if (null) {}
+        if (whTurn && enPassantAv === (num() + 8)) updateBoard[Math.floor(enPassantAv / 8)][enPassantAv % 8] = null
+        if (!whTurn && enPassantAv === (num() - 8)) updateBoard[Math.floor(enPassantAv / 8)][enPassantAv % 8] = null
 
         // set 'from' sq to null
         updateBoard[Math.floor(selectedP / 8)][selectedP % 8] = null
@@ -168,7 +168,7 @@ const Board = props => {
         setBoard(updateBoard)
         setWhTurn(!whTurn)
     }
-    console.log(board, enPassantAv)
+
     return (
         <div className="Board">
             {renderBoard()}
