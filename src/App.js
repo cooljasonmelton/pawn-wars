@@ -5,6 +5,7 @@ import './App.css';
 
 // components
 import Board from './board/Board';
+import Info from './info/Info';
 
 const App = () => {
   const [whTurn, setWhTurn] = useState(true)
@@ -35,15 +36,7 @@ const App = () => {
         <div className="m-container info-c cfb">
           <h1 className="logo-header">PAWN WARS</h1>
 
-          <div className={"instructions" + (instructions ? " open-i" : "")}>
-            <b>To Win:</b> Move one of your pawns to the edge of the board. 
-            <br/>
-            <br/>
-            <b>Moving:</b> Pawns can only move forward toward the opposing color. On their first move, they may move two spaces. Otherwise, pawns may only move one space each turn. 
-            <br/>
-            <br/>
-            <b>Capturing:</b> A pawn can capture an opposing pawn on a square at a forward diagonal. Also, if a pawn moves two squares passing an opposing pawn, on the next turn, that opposing pawns can capture the passing pawn by moving to the square behind it. This is called "En Passant". 
-          </div>
+          <Info instructions={instructions}/>
 
           <div className="button-c cfb">
             <button onClick={()=>setInstructions(!instructions)}>Instructions</button>
