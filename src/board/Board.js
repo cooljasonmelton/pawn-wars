@@ -70,13 +70,13 @@ const Board = props => {
             // available pawn capture
             if ((sq === 'wpav') || (sq === 'bpav')) {
                 const sqNum = counter
-                return <div key={counter} className={"cfb "+sqColor(counter)} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
+                return <div key={counter} className={"cfb "+ sqColor(counter)} onClick={()=>movePiece(() => sqNum)}><Pawn color="av"/></div>
             }
 
-            // available pawn capture
-            if ((sq === 'epav')) {
+            // available en passant capture
+            if ((sq === 'ep')) {
                 const sqNum = counter
-                return <div key={counter} className={"cfb "+sqColor(counter)} onClick={()=>movePiece(() => (sqNum, true))}><Pawn color="av"/></div>
+                return <div key={counter} className={"cfb "+ sqColor(counter)} onClick={()=>movePiece(() => (sqNum))}><Pawn color="av"/></div>
             }
 
             // pawn on winning square
@@ -93,7 +93,7 @@ const Board = props => {
         const updateBoard = [...boardArr]
         return updateBoard.map(r=> r.map(sq => {
             if (sq === "av") return null
-            // if (sq === "epav") return null
+            if (sq === "ep") return null
             if (sq && sq.substring(2,4) === "av") return sq.substring(0,2)
             return sq
         }))
@@ -119,8 +119,8 @@ const Board = props => {
             if (updateBoard[rank - 1][file + 1] === "bp") updateBoard[rank - 1][file + 1] = "bpav"
             if (updateBoard[rank - 1][file - 1] === "bp") updateBoard[rank - 1][file - 1] = "bpav"
             // available en passant
-            if (num() - 1 === enPassantAv) updateBoard[rank - 1][file - 1] = "epav"
-            if (num() + 1 === enPassantAv) updateBoard[rank - 1][file + 1] = "epav" 
+            if (num() - 1 === enPassantAv) updateBoard[rank - 1][file - 1] = "ep"
+            if (num() + 1 === enPassantAv) updateBoard[rank - 1][file + 1] = "ep" 
         }
 
         if (!whTurn) {
@@ -132,17 +132,14 @@ const Board = props => {
             if (updateBoard[rank + 1][file + 1] === "wp") updateBoard[rank + 1][file + 1] = "wpav"
             if (updateBoard[rank + 1][file - 1] === "wp") updateBoard[rank + 1][file - 1] = "wpav"
             // available en passant
-            if (num() - 1 === enPassantAv) updateBoard[rank + 1][file - 1] = "epav"
-            if (num() + 1 === enPassantAv) updateBoard[rank + 1][file + 1] = "epav" 
+            if (num() - 1 === enPassantAv) updateBoard[rank + 1][file - 1] = "ep"
+            if (num() + 1 === enPassantAv) updateBoard[rank + 1][file + 1] = "ep" 
         }
         setBoard(updateBoard)
     }
 
-
-
     const movePiece = (num) => {
-        // console.log(enPass)
-        const updateBoard = [...clearAv(board, true)]
+        const updateBoard = [...clearAv(board)]
         // get piece name
         let piece = updateBoard[Math.floor(selectedP / 8)][selectedP % 8]
 
@@ -159,7 +156,6 @@ const Board = props => {
         // capture piece via en passant
         if (null) {}
 
-
         // set 'from' sq to null
         updateBoard[Math.floor(selectedP / 8)][selectedP % 8] = null
         // set 'to' sq to piece
@@ -172,7 +168,7 @@ const Board = props => {
         setBoard(updateBoard)
         setWhTurn(!whTurn)
     }
-    // console.log(board, enPassantAv)
+    console.log(board, enPassantAv)
     return (
         <div className="Board">
             {renderBoard()}
