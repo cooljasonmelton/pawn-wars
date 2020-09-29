@@ -25,6 +25,7 @@ const Board = props => {
     // if pawn moves 2 sq, saves sq num to allow for en passant
     const [enPassantAv, setEnPassantAv] = useState(null)
 
+
     // resets piece placement, white turn, reset button, win game
     const resetEverything = () => {
         setBoard(basicBoard)
@@ -88,6 +89,17 @@ const Board = props => {
         }))
     }
 
+    const clearAv = (boardArr) => {
+        const updateBoard = [...boardArr]
+        return updateBoard.map(r=> r.map(sq => {
+            if (sq === "av") return null
+            // if (sq === "epav") return null
+            if (sq && sq.substring(2,4) === "av") return sq.substring(0,2)
+            return sq
+        }))
+    }
+
+
     const selectPiece = (num, piece) => {
         // return if game is won
         if (winGame) return
@@ -107,12 +119,8 @@ const Board = props => {
             if (updateBoard[rank - 1][file + 1] === "bp") updateBoard[rank - 1][file + 1] = "bpav"
             if (updateBoard[rank - 1][file - 1] === "bp") updateBoard[rank - 1][file - 1] = "bpav"
             // available en passant
-            if (num() - 1 === enPassantAv) {
-                updateBoard[rank - 1][file - 1] = "epav"
-            }
-            if (num() + 1 === enPassantAv) {
-                updateBoard[rank - 1][file + 1] = "epav" 
-            }
+            if (num() - 1 === enPassantAv) updateBoard[rank - 1][file - 1] = "epav"
+            if (num() + 1 === enPassantAv) updateBoard[rank - 1][file + 1] = "epav" 
         }
 
         if (!whTurn) {
@@ -124,28 +132,17 @@ const Board = props => {
             if (updateBoard[rank + 1][file + 1] === "wp") updateBoard[rank + 1][file + 1] = "wpav"
             if (updateBoard[rank + 1][file - 1] === "wp") updateBoard[rank + 1][file - 1] = "wpav"
             // available en passant
-            if (num() - 1 === enPassantAv) {
-                updateBoard[rank + 1][file - 1] = "epav"
-            }
-            if (num() + 1 === enPassantAv) {
-                updateBoard[rank + 1][file + 1] = "epav" 
-            }
+            if (num() - 1 === enPassantAv) updateBoard[rank + 1][file - 1] = "epav"
+            if (num() + 1 === enPassantAv) updateBoard[rank + 1][file + 1] = "epav" 
         }
         setBoard(updateBoard)
     }
 
-    const clearAv = boardArr => {
-        const updateBoard = [...boardArr]
-        return updateBoard.map(r=> r.map(sq => {
-            if (sq === "av") return null
-            if (sq === "epav") return null
-            if (sq && sq.substring(2,4) === "av") return sq.substring(0,2)
-            return sq
-        }))
-    }
 
-    const movePiece = (num, enPassant = false) => {
-        const updateBoard = [...clearAv(board)]
+
+    const movePiece = (num) => {
+        // console.log(enPass)
+        const updateBoard = [...clearAv(board, true)]
         // get piece name
         let piece = updateBoard[Math.floor(selectedP / 8)][selectedP % 8]
 
@@ -159,13 +156,14 @@ const Board = props => {
             piece = piece + 'w'
         }
 
+        // capture piece via en passant
+        if (null) {}
+
+
         // set 'from' sq to null
         updateBoard[Math.floor(selectedP / 8)][selectedP % 8] = null
         // set 'to' sq to piece
         updateBoard[Math.floor(num() / 8)][num() % 8] = piece
-
-        // capture piece via en passant
-        if (enPassant) {}
 
         // does this move allow opponent to enpassant?
         if ((num() - selectedP === 16) || (num() - selectedP === -16)) setEnPassantAv(num())
@@ -174,7 +172,7 @@ const Board = props => {
         setBoard(updateBoard)
         setWhTurn(!whTurn)
     }
-    console.log(board, enPassantAv)
+    // console.log(board, enPassantAv)
     return (
         <div className="Board">
             {renderBoard()}
