@@ -32,10 +32,16 @@
 
 /* LOGO  */
 .logo-c{
-    width: 100%;
-
+    padding: 0 1em;
     background-color: #2A9D8F;
     box-shadow: 1px 2px 2px #264653;
+    justify-content: flex-end;
+}
+.logo-c > a {
+    margin: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    color: #264653;
 }
 
 .logo-header{
