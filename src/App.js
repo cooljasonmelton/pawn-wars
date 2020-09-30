@@ -16,11 +16,10 @@ const App = () => {
   return (
     <div className="App">
 
-      <div className="logo-c">
+      <div className="logo-c cfb">
         {/* <h1 className="logo-header"> </h1> */}
-        <br/>
-        <br/>
-        <br/>
+        <a href="mailto:jason.melton2@gmail.com" target="_blank" rel="noopener noreferrer">Contact</a> 
+        <a href="https://github.com/cooljasonmelton/pawn-wars" target="_blank" rel="noopener noreferrer">Github</a> 
       </div>
 
       <div className="cfb">
