@@ -8,7 +8,7 @@ import './Board.css';
 
 // components
 import Pawn from '../pieces/pawn/Pawn'
-
+import Rook from '../pieces/rook/Rook'
 const Board = props => {
     const { 
         whTurn, 
@@ -61,13 +61,13 @@ const Board = props => {
                 )
             }
 
-            if ((sq === 'wr') || (sq === 'wr')) { 
+            if ((sq === 'wr') || (sq === 'br')) { 
                 const sqNum = counter
                 return (
                     <div key={sqNum} 
-                        onClick={()=>selectPiece(() => sqNum, sq === "wp" ? "wp" : "bp")} 
+                        onClick={()=>selectPiece(() => sqNum, sq === "wr" ? "wr" : "br")} 
                         className={sqColor(sqNum) + ' cfb'}>
-                        <Pawn color={sq === "wp" ? "wh" : "bl"}/>
+                        <Rook color={sq === "wr" ? "wh" : "bl"}/>
                     </div>
                 )
             }
@@ -104,11 +104,14 @@ const Board = props => {
         const updateBoard = [...boardArr]
         return updateBoard.map(r=> r.map(sq => {
             if (sq === "av") return null
+            if (sq === "rv") return null
             if (sq === "ep") return null
             if (sq && sq.substring(2,4) === "av") return sq.substring(0,2)
             return sq
         }))
     }
+
+
 
     const selectPiece = (num, piece) => {
         // return if game is won
@@ -119,6 +122,9 @@ const Board = props => {
         const updateBoard = [...clearAv(board)]
         const rank = Math.floor(num() / 8);
         const file = num() % 8;
+
+        // if piece is a rook
+        if ((piece === "wr") || (piece === "br")) return selectRook(num, piece, updateBoard, rank, file)
 
         if (whTurn) {
             // wh pawn moves two space
@@ -146,6 +152,26 @@ const Board = props => {
             if (num() + 1 === enPassantAv) updateBoard[rank + 1][file + 1] = "ep" 
         }
         setBoard(updateBoard)
+    }
+
+    const selectRook = (num, piece, updateBoard, rank, file) => {
+        console.log(num, piece, updateBoard, rank, file)
+        let fr = true
+        let br = true
+        let lf = true
+        let rf = true      
+        for (let i=1; i < 7; i++){
+            if (fr && !updateBoard[rank + i][file]) updateBoard[rank + i][file] = 'rv'
+            else fr = false
+            if (br && !updateBoard[rank - i][file]) updateBoard[rank - i][file] = 'rv'
+            else br = false
+            if (lf && !updateBoard[rank][file + i]) updateBoard[rank][file + i] = 'rv'
+            else lf = false
+            if (rf && !updateBoard[rank][file - i]) updateBoard[rank][file - i] = 'rv'
+            else rf = false
+        }
+        
+
     }
 
     const movePiece = (num) => {

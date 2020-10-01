@@ -12,10 +12,10 @@ const Rook = props => {
   return (
     <>
       {color === 'av' ? 
-        <img className="piece" src={avpawn} alt="capture pawn"/>
+        <img className="piece" src={avpawn} alt="capture rook"/>
           : color === 'wh' ? 
-            <img className="piece" src={wpawn} alt="white pawn"/>
-              : <img className="piece" src={bpawn} alt="black pawn"/>}
+            <img className="piece" src={wrook} alt="white rook"/>
+              : <img className="piece" src={brook} alt="black rook"/>}
     </>
   );
 }
