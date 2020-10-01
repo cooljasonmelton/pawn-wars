@@ -1,7 +1,6 @@
 import React from 'react';
 
 // styling 
-import './Pawn.css'
 import '../../App.css'
 // images
 import { wpawn, bpawn, avpawn } from '../../images/index.js'
