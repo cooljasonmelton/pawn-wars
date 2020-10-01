@@ -61,6 +61,17 @@ const Board = props => {
                 )
             }
 
+            if ((sq === 'wr') || (sq === 'wr')) { 
+                const sqNum = counter
+                return (
+                    <div key={sqNum} 
+                        onClick={()=>selectPiece(() => sqNum, sq === "wp" ? "wp" : "bp")} 
+                        className={sqColor(sqNum) + ' cfb'}>
+                        <Pawn color={sq === "wp" ? "wh" : "bl"}/>
+                    </div>
+                )
+            }
+
             // available move
             if (sq === 'av') {
                 const sqNum = counter
