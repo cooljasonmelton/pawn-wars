@@ -1,14 +1,14 @@
 // this file will export an AoA for Board.js to render
 
 export const basicBoard = [
-    ["br", null, null, null, null, null, null, "br"],
+    [null, null, null, null, null, null, null, null],
     ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
-    ["wr", null, null, null, null, null, null, "wr"]
+    [null, null, null, null, null, null, null, null]
 ]
 
 export const fullBoard = [
