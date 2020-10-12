@@ -7,6 +7,7 @@ As players get comfortable with how the pawns move, more pieces can be added so 
 
 ### deployed demo
 <a href="https://hopeful-jepsen-712859.netlify.app/" target="_blank"> Click here</a>
+
 ### built with
 - React.js
 
