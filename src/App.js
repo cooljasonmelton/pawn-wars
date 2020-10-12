@@ -37,7 +37,7 @@ const App = () => {
 
           <Info instructions={instructions}/>
 
-          <div className="button-c cfb">
+          <div className="cfb button-c">
             <button onClick={()=>setInstructions(!instructions)}>Instructions</button>
             <button onClick={()=>setReset(true)}>New Game</button>
           </div>

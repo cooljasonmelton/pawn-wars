@@ -15,7 +15,7 @@
 .cfb{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 /* fill container */
@@ -47,13 +47,15 @@
 .logo-header{
     padding: 1rem 1rem;
     color: #E9C46A;
+    white-space: nowrap;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #264653;
 }
 
 /* MAIN CONTAINERS */
 .m-container{
-    margin: 1em 3em;
+    margin: 3em;
+    width: 500px;
 
     background-color: #2A9D8F;
     box-shadow: 1px 2px 2px #264653;
@@ -63,11 +65,13 @@
 /* BOARD CONTAINER */
 .board-c{
     position: relative;
-    width: 35rem;
+
+    height: 500px;
    
     border-radius: 1em;
     border: 0.8em solid #512940;
     background-color: #512940;
+    flex-shrink: 0;
 }
 
 .board-c:after{
@@ -78,11 +82,8 @@
 
 /* INFO CONTAINER */
 .info-c{
-    width: 40%;
     padding: 1em;
     flex-direction: column;
-    white-space: nowrap;
-
 }
 
 /* winning message */
@@ -98,6 +99,7 @@
 
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #264653;
+    white-space: nowrap;
     transition: 0.5s;
 }
 .open-w{
@@ -131,7 +133,9 @@
 /* info container controls */
 .button-c{
     width: 100%;
+    justify-content: center;
 }
+
 .button-c > button {
     padding: 0.3em;
     margin: 0.5em;
@@ -146,9 +150,11 @@
 .button-c > button:focus {
     outline: none;
 }
+
 .button-c > button:hover {
     cursor: pointer;
 }
+
 .button-c > button:active {
     background-color: #264653;
     border: 1px solid #B9D4DF;
@@ -156,17 +162,22 @@
 }
 
 /* SMALL SCREENS */
-@media (max-width: 750px) {
+@media (max-width: 800px) {
     .cfb{
         flex-direction: column;
     }
 
     .m-container{
-        margin: 1em;
-        width: 90%;
+        margin: 1rem;
+        width: 400px;
+    }
+    .board-c {
+        height: 400px;
     }
 }
 
+@media (max-height: 750px) {
+}
 
 
 
