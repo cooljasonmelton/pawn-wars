@@ -1,4 +1,5 @@
 # pawn wars
+<img src="https://github.com/cooljasonmelton/pawn-wars/blob/master/pawn-wars-demo.gif?raw=true" width="50%" alt="demo" /> 
 
 ### about
 Pawn Wars is a chess variant that helps people learn how chess pieces move without the needing to understand the more complicated aspects of the game. The first player to move a pawn to the other end of the board wins. 
@@ -23,7 +24,8 @@ npm start
 ```
 
 ### contact author
-- Jason Melton: jason.melton2@gmail.com
+- Jason Melton
+- jason.melton2@gmail.com
 
 ### coming soon
 - option to add other pieces: rook, bishop, knight, queen king
