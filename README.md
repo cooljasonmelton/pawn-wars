@@ -5,6 +5,8 @@ Pawn Wars is a chess variant that helps people learn how chess pieces move witho
 
 As players get comfortable with how the pawns move, more pieces can be added so players can learn how those pieces move as well (this will be available in later versions of the app).
 
+### deployed demo
+<a href="https://hopeful-jepsen-712859.netlify.app/" target="_blank"> Click here</a>
 ### built with
 - React.js
 
