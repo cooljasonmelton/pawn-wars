@@ -196,11 +196,8 @@
         width: 400px;
     }
     .board-c {
-        height: 400px;
-    }
-
-    .turn-header:{
         width: 400px;
+        height: 400px;
     }
 }
 
