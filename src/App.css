@@ -66,9 +66,13 @@
 .board-c{
     position: relative;
 
+    margin: 3em 3em 1em 3em;
+
     height: 500px;
+    width: 500px;
    
     border-radius: 1em;
+    box-shadow: 1px 2px 2px #264653;
     border: 0.8em solid #512940;
     background-color: #512940;
     flex-shrink: 0;
@@ -123,6 +127,26 @@
     margin: 1em 0;
 }
 
+.turn-header{
+    padding: 0.5em;
+
+    width: 7em;
+    border-radius: 0.5em;
+    border: 2px solid #512940;
+
+    background-color: #E9C46A;
+    box-shadow: 1px 2px 2px #264653;
+
+    color: black;
+    text-align: center;
+}
+
+.board-side{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .open-i {
     height: 20em;
     overflow: scroll;
@@ -133,7 +157,6 @@
 /* info container controls */
 .button-c{
     width: 100%;
-    justify-content: center;
 }
 
 .button-c > button {
@@ -153,6 +176,7 @@
 
 .button-c > button:hover {
     cursor: pointer;
+    opacity: 0.9;
 }
 
 .button-c > button:active {
@@ -174,9 +198,10 @@
     .board-c {
         height: 400px;
     }
-}
 
-@media (max-height: 750px) {
+    .turn-header:{
+        width: 400px;
+    }
 }
 
 

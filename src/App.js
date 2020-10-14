@@ -23,17 +23,22 @@ const App = () => {
       </div>
 
       <div className="cfb">
-        <div className="m-container board-c">
-            <Board whTurn={whTurn} 
-              setWhTurn={setWhTurn} 
-              reset={reset} 
-              setReset={setReset}
-              winGame={winGame}
-              setWinGame={setWinGame}/>
+        <div className="cfb board-side">
+          <div className="board-c">
+              <Board whTurn={whTurn} 
+                setWhTurn={setWhTurn} 
+                reset={reset} 
+                setReset={setReset}
+                winGame={winGame}
+                setWinGame={setWinGame}/>
+          </div>
+          <h3 className="turn-header"> Turn: {whTurn ? "White" : "Black"}</h3>
         </div>
+
 
         <div className="m-container info-c cfb">
           <h1 className="logo-header">PAWN WARS</h1>
+
 
           <Info instructions={instructions}/>
 
