@@ -32,3 +32,20 @@ npm start
 - visual diagrams to show how pieces move in instuctions box
 - option to turn off available move markers
 - option to turn on check and checkmate
+
+<!-- pseudo code
+
+- full game turn 
+- if king is in check, find only possible moves for king
+- if king is in check and other piece clicked, let user know check
+
+- encapsulate functionality of each piece
+e.g.
+each piece uses 3 functions: e.g.
+1 selectPawn: show available to-squares 
+2 if available square clicked, remove available to-squares and send info to movePawn
+3 movePawn (board, to-square, from-square, enPassant?)
+update board so piece is on to-square, deleted from from-square
+if enpassant, pawn is removed from EP square 
+if check, save for next turn 
+-->
