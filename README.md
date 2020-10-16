@@ -28,6 +28,7 @@ npm start
 - jason.melton2@gmail.com
 
 ### coming soon
+
 - option to add other pieces: rook, bishop, knight, queen king
 - visual diagrams to show how pieces move in instuctions box
 - option to turn off available move markers
@@ -48,4 +49,6 @@ each piece uses 3 functions: e.g.
 update board so piece is on to-square, deleted from from-square
 if enpassant, pawn is removed from EP square 
 if check, save for next turn 
+
+Testing 
 -->
