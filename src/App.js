@@ -1,13 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState, useReducer } from 'react';
 
 // styling
 import './App.css';
+
+// reducers
+import { reducer } from './reducers/reducer'
+
+// board arrays
+import { basicBoard } from './gameplay/GameArrays'
 
 // components
 import Board from './board/Board';
 import Info from './info/Info';
 
 const App = () => {
+  const game = {
+    board: basicBoard,
+    instructions: false,
+    reset: true,
+    winGame: null, 
+    whTurn: true, 
+  }
+
+  const [state, dispatch] = useReducer(reducer, game);
+
   const [whTurn, setWhTurn] = useState(true)
   const [reset, setReset] = useState(true)
   const [winGame, setWinGame] = useState(null)
@@ -30,7 +46,9 @@ const App = () => {
                 reset={reset} 
                 setReset={setReset}
                 winGame={winGame}
-                setWinGame={setWinGame}/>
+                setWinGame={setWinGame}
+                state={state}
+                dispatch={dispatch}/>
           </div>
           <h3 className="turn-header"> Turn: {whTurn ? "White" : "Black"}</h3>
         </div>
