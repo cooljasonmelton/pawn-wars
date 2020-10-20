@@ -1,26 +1,20 @@
-import React, {useState, useEffect, useReducer} from 'react';
+import React, { useState, useEffect } from 'react';
 
 // initial board data
-import { basicBoard,  testRook} from '../gameplay/GameArrays'
-
-// reducers
-import { reducer } from '../reducers/reducer'
+import { basicBoard} from '../gameplay/GameArrays'
 
 // styling
 import './Board.css';
 
 // piece functions
-import { selectRook, moveRook } from '../gameplay/fnRook'
+import { selectRook } from '../gameplay/fnRook'
 
 // components
 import Pawn from '../pieces/pawn/Pawn'
 import Rook from '../pieces/rook/Rook'
 const Board = props => {
-    // const [state, dispatch] = useReducer(reducer);
-    // console.log(reducer)
-    // console.log(state, dispatch)
 
-
+    // const {state, dispatch} = props
 
     const { 
         whTurn, 

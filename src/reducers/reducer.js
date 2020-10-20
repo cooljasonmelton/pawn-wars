@@ -1,15 +1,17 @@
-
-export const reducer = (state, action) => {
+export const reducer = (game, action) => {
   switch (action.type) {
     case 'UPDATE_BOARD':
-      return state
+      return game
     case 'UPDATE_TURN':
-      return state
-    case 'UPDATE_BOARD':
-      return state
-    case 'UPDATE_TURN':
-      return state
+      return game
+    case 'UPDATE_WIN':
+      return game
+    case 'RESET_GAME':
+      return game
     default:
-      return state
+      return game
   }
 }
+
+
+
