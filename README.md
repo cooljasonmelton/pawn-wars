@@ -35,6 +35,15 @@ npm start
 
 <!-- pseudo code
 
+TO DO: 
+*******
+-refactor gameplay funcs to file by piece
+-add function so win if opp has no moves
+-redo pawn rules so they don't contradict other pieces
+*******
+
+
+///////////////////////////
 - full game turn 
 - if king is in check, find only possible moves for king
 - if king is in check and other piece clicked, let user know check

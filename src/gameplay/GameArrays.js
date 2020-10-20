@@ -21,3 +21,14 @@ export const fullBoard = [
     ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
     ["wr", "wn", "wi", "wq", "wk", "wi", "wn", "wr"]
 ]
+
+export const testRook = [
+    ["br", null, null, null, null, null, null, "br"],
+    ["bp", "bp", "bp", "bp", "bp", "bp", "bp", "bp"],
+    [null, null, null, null, null, null, null, null],
+    [null, null, null, "br", null, null, null, null],
+    [null, null, null, null, null, "wr", null, null],
+    [null, null, null, null, null, null, null, null],
+    ["wp", "wp", "wp", "wp", "wp", "wp", "wp", "wp"],
+    ["wr", null, null, null, null, null, null, "wr"]
+]
