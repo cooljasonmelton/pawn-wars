@@ -1,13 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState, useReducer} from 'react';
 
 // styling
 import './App.css';
+
+// reducers
+import { reducer } from './reducers/reducer'
+
+// board arrays
+import { basicBoard } from './gameplay/GameArrays'
 
 // components
 import Board from './board/Board';
 import Info from './info/Info';
 
 const App = () => {
+  const initialState = {
+    board: basicBoard,
+    instructions: false,
+    reset: true,
+    winGame: null, 
+    whTurn: true, 
+  }
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // console.log(state, dispatch)
+
   const [whTurn, setWhTurn] = useState(true)
   const [reset, setReset] = useState(true)
   const [winGame, setWinGame] = useState(null)
