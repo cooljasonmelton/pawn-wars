@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 
 // initial board data
-import { basicBoard } from '../gameplay/GameArrays'
+import { basicBoard,  testRook} from '../gameplay/GameArrays'
 
 // styling
 import './Board.css';
+
+// piece functions
+import { selectRook, moveRook } from '../gameplay/fnRook'
 
 // components
 import Pawn from '../pieces/pawn/Pawn'
@@ -61,11 +64,12 @@ const Board = props => {
                 )
             }
 
+            // rook
             if ((sq === 'wr') || (sq === 'br')) { 
                 const sqNum = counter
                 return (
                     <div key={sqNum} 
-                        onClick={()=>selectPiece(() => sqNum, sq === "wr" ? "wr" : "br")} 
+                        onClick={()=>selectRook(() => sqNum, whTurn, board)} 
                         className={sqColor(sqNum) + ' cfb'}>
                         <Rook color={sq === "wr" ? "wh" : "bl"}/>
                     </div>
@@ -111,8 +115,6 @@ const Board = props => {
         }))
     }
 
-
-
     const selectPiece = (num, piece) => {
         // return if game is won
         if (winGame) return
@@ -152,26 +154,6 @@ const Board = props => {
             if (num() + 1 === enPassantAv) updateBoard[rank + 1][file + 1] = "ep" 
         }
         setBoard(updateBoard)
-    }
-
-    const selectRook = (num, piece, updateBoard, rank, file) => {
-        console.log(num, piece, updateBoard, rank, file)
-        let fr = true
-        let br = true
-        let lf = true
-        let rf = true      
-        for (let i=1; i < 7; i++){
-            if (fr && !updateBoard[rank + i][file]) updateBoard[rank + i][file] = 'rv'
-            else fr = false
-            if (br && !updateBoard[rank - i][file]) updateBoard[rank - i][file] = 'rv'
-            else br = false
-            if (lf && !updateBoard[rank][file + i]) updateBoard[rank][file + i] = 'rv'
-            else lf = false
-            if (rf && !updateBoard[rank][file - i]) updateBoard[rank][file - i] = 'rv'
-            else rf = false
-        }
-        
-
     }
 
     const movePiece = (num) => {
