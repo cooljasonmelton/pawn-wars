@@ -59,5 +59,4 @@ update board so piece is on to-square, deleted from from-square
 if enpassant, pawn is removed from EP square 
 if check, save for next turn 
 
-Testing 
 -->
